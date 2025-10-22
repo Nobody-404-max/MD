@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upload — Murder Drones Database</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="bg-animation"></div>
+
+<header>
+  <a href="index.html" class="back">&larr; Home</a>
+  <h2 class="glitch">Upload Image</h2>
+</header>
+
+<div class="container">
+  <div class="upload-box animate-in">
+    <label>Upload File</label>
+    <input type="file" id="fileInput" accept="image/*">
+    <label>Category</label>
+    <select id="categorySelect">
+      <option>Canon</option>
+      <option>OC / Fan Canon</option>
+    </select>
+    <label>Lore / Tags</label>
+    <textarea id="loreInput" placeholder="Add lore or tags..."></textarea>
+    <div class="preview-container">
+      <img id="preview" src="" alt="Preview">
+    </div>
+    <button class="primary" onclick="uploadImage()">Upload</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+fileInput.addEventListener('change', e=>{
+  const file = e.target.files[0];
+  if(file){
+    preview.src = URL.createObjectURL(file);
+  }
+});
+</script>
+
+</body>
+</html>
